@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Nopcommerce" thread-count="3">
+
+<!--	<listeners>
+	 	<listener class-name="reportConfig.ExtentTestListener"></listener>
+		<listener class-name="commons.MethodListener"></listener>
+	</listeners>-->
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox"></parameter>
+		<classes>
+<!--			<class name="com.nopcommerce.user.User_Register" />
+-->			<class name="com.nopcommerce.user.User_Login" />
+		</classes>
+	</test>
+	<!--<test name="Run on Chrome">
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.nopcommerce.user.User_Register" />
+		</classes>
+	</test>
+	<test name="Run on Edge">
+		<parameter name="browser" value="edge"></parameter>
+		<classes>
+			<class name="com.nopcommerce.user.User_Register" />
+		</classes>
+	</test>-->
+
+	
+</suite> <!-- Suite -->
