@@ -1,8 +1,7 @@
 package commons;
 
-import java.sql.Driver;
 import java.time.Duration;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -19,13 +18,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-//import defaultUI.BasePageUI;
-//import pageObjects.ecommerce.admin.AdminLoginPageObject;
-//import pageObjects.ecommerce.user.UserAddressPageObject;
-//import pageObjects.ecommerce.user.UserCustomerInfoPageObject;
-//import pageObjects.ecommerce.user.UserHomePageObject;
-//import pageObjects.ecommerce.user.UserOrdersPageObject;
-//import pageUIs.jquery.HomePageUploadUI;
+import PageUI.BasePageUI;
+import PageUI.CustomerInfoPageUI;
+import pageObjects.PageGeneratorManager;
+
 
 public class BasePage {
 	
@@ -149,19 +145,24 @@ public class BasePage {
 		}
 		return locatorType;
 	}
+
+	protected List<WebElement> getListWebElements(WebDriver driver, String locatorType){
+		return driver.findElements(getByLocatorType(locatorType));
+	}
 	
 	protected WebElement getWebElement(WebDriver driver, String locatorType) {
 		return driver.findElement(getByLocatorType(locatorType));
 	}
 	
-	protected List<WebElement> getListWebElements(WebDriver driver, String locatorType){
-		return driver.findElements(getByLocatorType(locatorType));
+	protected WebElement getWebElement(WebDriver driver, String locatorType,String...values) {
+		return driver.findElement(getByLocatorType(locatorType));
 	}
+	
 	
 	public void clickToElement(WebDriver driver, String locatorType) {
 		getWebElement(driver, locatorType).click();
 	}
-	//Click Dynamic Locator
+
 	public void clickToElement(WebDriver driver, String locatorType,String... values) {
 		getWebElement(driver, getDynamicXpath(locatorType, values)).click();
 	}
@@ -250,6 +251,13 @@ public class BasePage {
 		}
 	}
 	
+	public void checkToCheckboxRadioDefault(WebDriver driver,String locatorType,String...values) {
+		WebElement element = getWebElement(driver, locatorType,values);
+		if (!element.isSelected()) {
+			element.click();
+		}
+	}
+	
 	public void uncheckToCheckboxRadioDefault(WebDriver driver,String locatorType) {
 		WebElement element = getWebElement(driver, locatorType);
 		if (element.isSelected()) {
@@ -304,8 +312,6 @@ public class BasePage {
 		actions.sendKeys(getWebElement(driver, getDynamicXpath(locatorType, values)), key).perform();
 	}
 
-
-//
 	public void scrollToBottomPage(WebDriver driver) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("window.scrollBy(0,document.body.scrollHeight)");
@@ -444,29 +450,28 @@ public class BasePage {
 	public static BasePage getPageGeneratorObject() {
 		return new BasePage();
 	}
-	//	Toi uu o bai level 09
-//	public BasePage openDynamicMyAccountPage(WebDriver driver, String pageName) {
-//		waitForAllClickable(driver, BasePageUI.DYNAMIC_PAGE_MY_ACCOUNT_PAGE, pageName);
-//		clickToElement(driver,BasePageUI.DYNAMIC_PAGE_MY_ACCOUNT_PAGE, pageName);
-//		switch (pageName) {
-//		case "Customer info":
-//			return PageGeneratorManager.getCustomerInfoPage(driver);
-//		case "Addresses":
-//			return PageGeneratorManager.getAddressPage(driver);
-//		case "Orders":
-//			return PageGeneratorManager.getOrdersPageObject(driver);
-//	
-//		default:
-//			throw new RuntimeException("Invalid Page Name at My Account area");
-//		}
-//	}
-
 	
-	//Ham su dung Format String de lay ra dynamic locator cho sidebar( co the dung voi 2 tham so khi 2 locator nam 2 vi tri khac nhau)
+	public BasePage openDynamicMyAccountPage(WebDriver driver, String pageName) {
+		waitForAllClickable(driver, BasePageUI.DYNAMIC_PAGE_MY_ACCOUNT_PAGE, pageName);
+		clickToElement(driver,BasePageUI.DYNAMIC_PAGE_MY_ACCOUNT_PAGE, pageName);
+		switch (pageName) {
+		case "Customer info":
+			return PageGeneratorManager.getCustomerInfoPage(driver);
+		case "Addresses":
+			return PageGeneratorManager.getAddressPage(driver);
+		case "Change password":
+			return PageGeneratorManager.getChangePasswordPage(driver);
+		case "My product review":
+			return PageGeneratorManager.getMyProductReviewPage(driver);
+		default:
+			throw new RuntimeException("Invalid Page Name at My Account area");
+		}
+	}
+	
 	public static void clickToSideBarLink(String dynamicLocator, String pageName) {
 		String locator = String.format(dynamicLocator, pageName);
 	}
-	//Ham su ly locator co qua nhieu tham so co kieu du lieu giong nhau: Su dung Rest Parameter xu ly 1-n tham so dong
+	
 	public static void clickToSideBar(String dynamicLocator, String... params) {
 		String locator = String.format(dynamicLocator,(Object[]) params);	
 	}
@@ -494,5 +499,10 @@ public class BasePage {
 		WebElement errMessage =  exWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathLocator)));
 		String acctualResult = errMessage.getText();
 		return  acctualResult;
+	}
+	
+	public void clickRadioButton(WebDriver driver, String locator, String value) {
+		waitForElementClickable(driver, locator, value);
+		clickToElement(driver, locator, value);
 	}
 }

@@ -115,7 +115,6 @@ public class User_Register extends BaseTest {
 				"The password and confirmation password do not match.");
 	}
 	
-	
 	@AfterClass
 	public void afterClass() {
 		driver.quit();

@@ -2,6 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import commons.BasePage;
 import pageObjects.HomePageObject;
 
 public class PageGeneratorManager {
@@ -15,6 +16,34 @@ public class PageGeneratorManager {
 	
 	public static LoginPageObject getLoginPageObject(WebDriver driver) {
 		return new LoginPageObject(driver);
+	}
+
+	public static CustomerInfoPageObject getCustomerInfoPage(WebDriver driver) {
+		return new CustomerInfoPageObject(driver);
+	}
+
+	public static AddressesPageObject getAddressPage(WebDriver driver) {
+		return new AddressesPageObject(driver);
+	}
+
+	public static ChangePasswordPageObject getChangePasswordPage(WebDriver driver) {
+		return new ChangePasswordPageObject(driver);
+	}
+	
+	public static MyProductReviewPageObject getMyProductReviewPage(WebDriver driver) {
+		return new MyProductReviewPageObject(driver);
+	}
+
+	public static MyAccountPageObject getMyAccountPage(WebDriver driver) {
+		return new MyAccountPageObject(driver);
+	}
+	
+	public static SearchPageObject getSearchPage(WebDriver driver) {
+		return new SearchPageObject(driver);
+	}
+	
+	public static ProductPageObject getProductPage(WebDriver driver) {
+		return new ProductPageObject(driver);
 	}
 	
 	
