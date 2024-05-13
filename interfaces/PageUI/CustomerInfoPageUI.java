@@ -12,5 +12,6 @@ public class CustomerInfoPageUI {
 	public static final String COMPANYNAME_INPUT  = "xpath=//input[@id='Company']";
 	public static final String SAVE_BUTTON  = "xpath=//button[@id='save-info-button']";
 	public static final String SUCCESS_MESSAGE = "xpath=//p[@class='content']";
+	public static final String HOMEPAGE_LINK = "xpath=//div[@class='header-logo']//a";
 
 }

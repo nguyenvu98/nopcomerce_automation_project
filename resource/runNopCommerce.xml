@@ -8,36 +8,31 @@
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-<!--			<class name="com.nopcommerce.user.User_Register" />
-		<class name="com.nopcommerce.user.User_Login" />
-		<class name="com.nopcommerce.user.User_My_Account" />
-		<class name="com.nopcommerce.user.User_Search" />-->
-		
-		<class name="com.nopcommerce.user.User_Sort" />
+<!--		<class name="com.nopcommerce.user.User_Register" />
+			<class name="com.nopcommerce.user.User_Login" />
+			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_My_Account"/>-->
+			<class name="com.nopcommerce.user.User_Search" />
 		</classes>
 	</test>
 	<test name="Run on Chrome">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-<!--			<class name="com.nopcommerce.user.User_Register" />	
+<!--		<class name="com.nopcommerce.user.User_Register" />
 			<class name="com.nopcommerce.user.User_Login" />
-			<class name="com.nopcommerce.user.User_My_Account" />
+			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_My_Account"/>-->
 			<class name="com.nopcommerce.user.User_Search" />
--->			
-		<class name="com.nopcommerce.user.User_Sort" />
 		</classes>
 	</test>
 	<test name="Run on Edge">
 		<parameter name="browser" value="edge"></parameter>
 		<classes>
-<!--			<class name="com.nopcommerce.user.User_Register" />
-		<class name="com.nopcommerce.user.User_Login" />
-		<class name="com.nopcommerce.user.User_My_Account" />
-		<class name="com.nopcommerce.user.User_Search" />-->
-
-		<class name="com.nopcommerce.user.User_Sort" />
-	</classes>
+<!--		<class name="com.nopcommerce.user.User_Register" />
+			<class name="com.nopcommerce.user.User_Login" />
+			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_My_Account"/>-->
+			<class name="com.nopcommerce.user.User_Search" />
+		</classes>
 	</test>
-
-	
 </suite> <!-- Suite -->

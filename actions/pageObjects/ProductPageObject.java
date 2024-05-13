@@ -37,4 +37,9 @@ public class ProductPageObject extends BasePage {
         Assert.assertEquals(sortedProductNames, expectedSortedProductNames, "Products were sorted correctly in ascending order by name.");
 	}
 
+	public void clickToAddReviewLink(WebDriver driver, String reviewLink) {
+		waitForElementClickable(driver, ProductPageUI.REVIEW_LINK);
+		clickToElement(driver, ProductPageUI.REVIEW_LINK);
+	}
+
 }
