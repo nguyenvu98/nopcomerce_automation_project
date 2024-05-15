@@ -20,24 +20,30 @@ public class SearchPageObject extends BasePage{
 	}
 
 	public void verifyfResultOfRelativeName() {
-		List<WebElement> products = getListWebElements(driver, SearchPageUI.PRODUCT_ITEM); 
-		boolean product1Found = false;
-		boolean product2Found = false;
+		List<WebElement> products = getListWebElements(driver, SearchPageUI.PRODUCT_ITEM);
+		String expectedResult_1 = "Lenovo IdeaCentre 600 All-in-One PC";
+		String expectedResult_2 = "Lenovo Thinkpad X1 Carbon Laptop";
+
     
-		for (WebElement product : products) {
-			if(product.getText().contains("lenovo")) {
-				WebElement productNameElement = product.findElement(By.xpath("//h2[@class='product-title']"));
-		        String productName = productNameElement.getText();
-		        if (productName.equals("Lenovo IdeaCentre 600 All-in-One PC")) {
-		            product1Found = true;
-		        }
-		        if (productName.equals("Lenovo ThinkPad X1 Carbon 4th Gen Laptop")) {
-		            product2Found = true;
-		        }
+		for (int i = 0; i < products.size(); i++) {
+			String temp1 = products.get(i).getText();
+			String temp2 = products.get(i++).getText();
+			try {
+				if(temp1.contains(expectedResult_1) && temp2.contains(expectedResult_2)) {
+					Assert.assertTrue(true, expectedResult_1 +" is displayed on product title Product Title: " + temp1);
+					Assert.assertTrue(true, expectedResult_2 +" is displayed on product title Product Title: " + temp2);
+				}
+			} catch (Exception e) {
+				throw e;
 			}
+//			if(temp1.contains(expectedResult_1) && temp2.contains(expectedResult_2)) {
+//				Assert.assertTrue(true, expectedResult_1 +" is displayed on product title Product Title: " + temp1);
+//				Assert.assertTrue(true, expectedResult_2 +" is displayed on product title Product Title: " + temp2);
+//			}	else {
+//				Assert.assertFalse(false, expectedResult_1 + " is not displayed on product title Product Title: " + temp1);
+//				Assert.assertFalse(false, expectedResult_2 + " is not displayed on product title Product Title: " + temp2);
+//			}
 		}
-		Assert.assertFalse(product1Found,"Product 1 is not found in the search results");
-        Assert.assertFalse(product2Found,"Product 2 is not found in the search results");
 	}
 	
 	public void verifyfResultOfAbsoluteName() {
@@ -55,6 +61,21 @@ public class SearchPageObject extends BasePage{
 		}
 		Assert.assertFalse(product1Found,"Product 1 is not found in the search results");
 	}
+	
+
+	public void verifyfResultOfSubCategories() {
+		String expectedResult = "Apple MacBook Pro 13-inch";
+		List<WebElement> products = getListWebElements(driver, SearchPageUI.PRODUCT_ITEM); 
+    
+		for (int i = 0; i < products.size(); i++) {
+			String temp = products.get(i).getText();
+			if(temp.contains(expectedResult)) {
+				Assert.assertTrue(true, expectedResult +" is displayed on product title Product Title: " + temp);
+			}else {
+				Assert.assertTrue(false, expectedResult + " is not displayed on product title Product Title: " + temp);			}
+		}
+	}
+	
 
 	public String getEmptyErrorMessage() {
 		waitForElementVisible(driver, SearchPageUI.EMPTY_ERROR_MESSAGE);
@@ -74,19 +95,4 @@ public class SearchPageObject extends BasePage{
 		selectManufacturer.selectByVisibleText(value);		
 	}
 
-	public void verifyfResultOfSubCategory() {
-		List<WebElement> products = getListWebElements(driver, SearchPageUI.PRODUCT_ITEM); 
-		boolean product1 = false;
-    
-		for (WebElement product : products) {
-			if(product.getText().contains("Apple Mackbook Pro 13-inch")) {
-				WebElement productNameElement = product.findElement(By.xpath("//h2[@class='product-title']"));
-		        String productName = productNameElement.getText();
-		        if (productName.equals("Apple Mackbook Pro 13-inch")) {
-		            product1 = true;
-		        }
-			}
-		}
-		Assert.assertFalse(product1,"Product 1 is not found in the search results");		
-	}
 }

@@ -62,7 +62,7 @@ public class User_My_Account extends BaseTest {
 		myAccountPage = PageGeneratorManager.getMyAccountPage(driver);
 	}
 	
-//	@Test
+	@Test
 	public void TC_01_Customer_Info(){
 		myAccountPage.clickToBlockNavigationLinkByName("Customer info");
 		customerInfoPage = new CustomerInfoPageObject(driver);
@@ -77,7 +77,7 @@ public class User_My_Account extends BaseTest {
 		customerInfoPage.verifySuccessMessage();
 	}
 	
-//	@Test
+	@Test
 	public void TC_02_Addresses(){
 		myAccountPage.clickToBlockNavigationLinkByName("Addresses");
 		addressesPage = new AddressesPageObject(driver);

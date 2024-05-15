@@ -31,18 +31,35 @@ public class User_Sort extends BaseTest {
 	public void beforeClass(String browser) throws Exception {
 		driver = getBrowserDriver(browser);
 		homePage = new HomePageObject(driver);
-	}
-	
-	@Test
-	public void TC_03_With_Relative_Product_Name(){
+		
 		homePage.hoverMouseToElement(driver, HomePageUI.TOPMENU_COMPUTER_LINK);
 		homePage.clickToElement(driver, HomePageUI.SUBMENU_NOTEBOOK_LINK);
 		productPage = PageGeneratorManager.getProductPage(driver);
+	}
+	
+	@Test
+	public void TC_01_With_Name_A_To_Z(){
+		productPage.selectSortByDropdown(driver,ProductPageUI.SORT_DROPDOWN,"Name: A to Z");
+		productPage.verifySortAToZ(driver,ProductPageUI.PRODUCT_NAME);
+	}
+	
+	@Test
+	public void TC_02_With_Name_Z_To_A(){
 		productPage.selectSortByDropdown(driver,ProductPageUI.SORT_DROPDOWN,"Name: Z to A");
 		productPage.verifySortZToA(driver,ProductPageUI.PRODUCT_NAME);
 	}
 	
+	@Test
+	public void TC_03_With_Name_Low_To_High(){
+		productPage.selectSortByDropdown(driver,ProductPageUI.SORT_DROPDOWN,"Price: Low to High");
+		productPage.verifySortLowToHigh(driver,ProductPageUI.PRODUCT_PRICE);
+	}
 	
+	@Test
+	public void TC_04_With_Name_High_To_Low(){
+		productPage.selectSortByDropdown(driver,ProductPageUI.SORT_DROPDOWN,"Price: High to Low");
+		productPage.verifySortHighToLow(driver,ProductPageUI.PRODUCT_PRICE);
+	}	
 	@AfterClass
 	public void afterClass(){
 		driver.quit();
