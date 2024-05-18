@@ -36,13 +36,6 @@ public class SearchPageObject extends BasePage{
 			} catch (Exception e) {
 				throw e;
 			}
-//			if(temp1.contains(expectedResult_1) && temp2.contains(expectedResult_2)) {
-//				Assert.assertTrue(true, expectedResult_1 +" is displayed on product title Product Title: " + temp1);
-//				Assert.assertTrue(true, expectedResult_2 +" is displayed on product title Product Title: " + temp2);
-//			}	else {
-//				Assert.assertFalse(false, expectedResult_1 + " is not displayed on product title Product Title: " + temp1);
-//				Assert.assertFalse(false, expectedResult_2 + " is not displayed on product title Product Title: " + temp2);
-//			}
 		}
 	}
 	

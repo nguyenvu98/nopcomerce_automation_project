@@ -27,9 +27,6 @@ import pageObjects.HomePageObject;
 import pageObjects.PageGeneratorManager;
 import pageObjects.RegisterPageObject;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
-
-//import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 //	protected final Logger log = LogManager.getLogger(getClass());
@@ -93,34 +90,6 @@ public class BaseTest {
 		}
 		return pass;
 	}
-
-//	
-//	public WebDriver preLogin(String browserName) {
-//		if (driverBaseTest == null) {
-//			if (browserName.equals("firefox")) {
-//				driverBaseTest = new FirefoxDriver();
-//			}else if (browserName.equals("chrome")) {
-//				driverBaseTest = new ChromeDriver();
-//			}else {
-//				driverBaseTest = new EdgeDriver();
-//			}
-//				driverBaseTest.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-//				driverBaseTest.manage().window().maximize();
-//				driverBaseTest.get(GlobalConstants.USER_PAGE_URL);
-//		}
-//		homePage = new HomePageObject(driverBaseTest);
-//		homePage.clickToHeaderLinkByName("Register");		
-//		registerPage = PageGeneratorManager.getRegisterPageObject(driverBaseTest);
-//		registerPage.sendkeyToElement(driverBaseTest, RegisterPageUI.FIRST_NAME_INPUT, validFirstName);
-//		registerPage.sendkeyToElement(driverBaseTest, RegisterPageUI.LAST_NAME_INPUT, validLastName);
-//		registerPage.sendkeyToElement(driverBaseTest, RegisterPageUI.EMAIL_INPUT, validEmail);
-//		registerPage.sendkeyToElement(driverBaseTest, RegisterPageUI.PASSWORD_INPUT, validPassword);
-//		registerPage.sendkeyToElement(driverBaseTest, RegisterPageUI.CONFIRM_PASSWORD_INPUT, validConfirmPassword);
-//		registerPage.clickRegisterButton();
-//		registerPage.clickToContinueButton();
-//		return driverBaseTest;
-//	}
-
 	
 	public static int randomNumber() {
 		Random random = new Random();

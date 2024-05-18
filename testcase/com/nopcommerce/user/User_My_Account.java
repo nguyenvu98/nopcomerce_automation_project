@@ -34,7 +34,6 @@ public class User_My_Account extends BaseTest {
 	private MyAccountPageObject myAccountPage;
 	private CustomerInfoPageObject customerInfoPage;
 	private AddressesPageObject addressesPage;
-	private MyProductReviewPageObject myProductReviewPage;
 	private ProductPageObject productPage;
 	
 	private	String invalidEmail = "abc";

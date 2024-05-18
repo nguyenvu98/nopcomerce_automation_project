@@ -11,8 +11,9 @@
 <!--		<class name="com.nopcommerce.user.User_Register" />
 			<class name="com.nopcommerce.user.User_Login" />
 			<class name="com.nopcommerce.user.User_My_Account"/>
-			<class name="com.nopcommerce.user.User_Search" />-->
-			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_Search" />
+			<class name="com.nopcommerce.user.User_Sort" />-->
+			<class name="com.nopcommerce.user.User_Compare_Wishlist" />
 		</classes>
 	</test>
 	<test name="Run on Chrome">
@@ -21,8 +22,9 @@
 <!--		<class name="com.nopcommerce.user.User_Register" />
 			<class name="com.nopcommerce.user.User_Login" />
 			<class name="com.nopcommerce.user.User_My_Account"/>
-			<class name="com.nopcommerce.user.User_Search" />-->
-			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_Search" />
+			<class name="com.nopcommerce.user.User_Sort" />-->
+			<class name="com.nopcommerce.user.User_Compare_Wishlist" />
 		</classes>
 	</test>
 	<test name="Run on Edge">
@@ -31,8 +33,9 @@
 <!--		<class name="com.nopcommerce.user.User_Register" />
 			<class name="com.nopcommerce.user.User_Login" />
 			<class name="com.nopcommerce.user.User_My_Account"/>
-			<class name="com.nopcommerce.user.User_Search" />-->
-			<class name="com.nopcommerce.user.User_Sort" />	
+			<class name="com.nopcommerce.user.User_Search" />
+			<class name="com.nopcommerce.user.User_Sort" />-->
+			<class name="com.nopcommerce.user.User_Compare_Wishlist" />
 		</classes>
 	</test>
 </suite> <!-- Suite -->

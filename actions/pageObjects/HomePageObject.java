@@ -34,6 +34,11 @@ public class HomePageObject extends BasePage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView(true);",footer);		
 	}
+
+	public void clickToProductLink() {
+		scrollToElement(driver,HomePageUI.PRODUCT_HOMEPAGE_LINK);
+		clickToElement(driver, HomePageUI.PRODUCT_HOMEPAGE_LINK);
+	}
 	
 	
 }

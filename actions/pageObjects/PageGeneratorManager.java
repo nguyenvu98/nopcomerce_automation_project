@@ -46,5 +46,15 @@ public class PageGeneratorManager {
 		return new ProductPageObject(driver);
 	}
 	
+	public static ProductDetailPageObject getProductDetailPage(WebDriver driver) {
+		return new ProductDetailPageObject(driver);
+	}
 	
+	public static WishlistPageObject getWishlistPage(WebDriver driver) {
+		return new WishlistPageObject(driver);
+	}
+	
+	public static CartPageObject getCartPage(WebDriver driver) {
+		return new CartPageObject(driver);
+	}
 }
