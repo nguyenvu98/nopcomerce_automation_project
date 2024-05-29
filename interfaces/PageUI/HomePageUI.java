@@ -11,4 +11,5 @@ public class HomePageUI {
 	public static final String TOPMENU_COMPUTER_LINK = "xpath=//div[@class='header-menu']//ul[contains(@class,'notmobile')]//li//a[text()='Computers ']";
 	public static final String SUBMENU_NOTEBOOK_LINK = "xpath=//div[@class='header-menu']//ul[contains(@class,'notmobile')]//li//a[text()='Computers ']//following-sibling::ul//li//a[text()='Notebooks ']";
 	public static final String PRODUCT_HOMEPAGE_LINK = "xpath=//div[@class='product-item' and @data-productid='18']";
+	public static final String SUBMENU_DESKTOP_LINK = "xpath=//div[@class='header-menu']//ul[contains(@class,'notmobile')]//li//a[text()='Computers ']//following-sibling::ul//li//a[text()='Desktops ']";
 }

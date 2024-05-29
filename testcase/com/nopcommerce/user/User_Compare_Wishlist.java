@@ -70,7 +70,6 @@ public class User_Compare_Wishlist extends BaseTest {
 		wishlistPage.addToCart();
 		cartPage = PageGeneratorManager.getCartPage(driver);
 		cartPage.verifyShoppingCartIsUpdate();
-			
 	}
 	
 	

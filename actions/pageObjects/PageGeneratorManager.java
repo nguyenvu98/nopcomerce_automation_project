@@ -57,4 +57,16 @@ public class PageGeneratorManager {
 	public static CartPageObject getCartPage(WebDriver driver) {
 		return new CartPageObject(driver);
 	}
+
+	public static DesktopPageObject getDesktopPage(WebDriver driver) {
+		return new DesktopPageObject(driver);
+	}
+	
+	public static NotebookPageObject getNotebookPage(WebDriver driver) {
+		return new NotebookPageObject(driver);
+	}
+	
+	public static CheckoutPageObject getCheckoutPage(WebDriver driver) {
+		return new CheckoutPageObject(driver);
+	}
 }

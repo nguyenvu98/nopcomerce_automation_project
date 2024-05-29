@@ -269,6 +269,10 @@ public class BasePage {
 		return getWebElement(driver, locatorType).isDisplayed();
 	}
 	
+	public boolean isElementUndisplayed(WebDriver driver,String locatorType) {
+		return !getWebElement(driver, locatorType).isDisplayed();
+	}
+	
 	public boolean isElementDisplayed(WebDriver driver,String locatorType, String...values) {
 		return getWebElement(driver, getDynamicXpath(locatorType, values)).isDisplayed();
 	}
@@ -504,5 +508,10 @@ public class BasePage {
 	public void clickRadioButton(WebDriver driver, String locator, String value) {
 		waitForElementClickable(driver, locator, value);
 		clickToElement(driver, locator, value);
+	}
+	
+	public void waitForLoadingInvisible(WebDriver driver, String locator) {
+		waitForElementInvisible(driver, locator);
+		isElementUndisplayed(driver, locator);
 	}
 }
