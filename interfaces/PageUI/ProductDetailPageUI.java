@@ -19,5 +19,6 @@ public class ProductDetailPageUI {
 	public static final String UPDATE_BUTTON = "xpath=//div[@class='add-to-cart']//button[contains(@class,'button-1')]";
 	public static final String CART_EMPTY_MESSAGE = "xpath=//div[@class='no-data']";
 	public static final String LOADING_BLOCK = "xpath=//div[contains(@class,'ajax-loading')]";
+	public static final String COMPARE_BUTTON = "xpath=//div[@class='overview-buttons']//button[contains(text(),'Add to compare')]";
 
 }

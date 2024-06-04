@@ -8,6 +8,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import PageUI.CartPageUI;
+import PageUI.CheckoutPageUI;
 import PageUI.HomePageUI;
 import PageUI.LoginPageUI;
 import PageUI.NotebookPageUI;
@@ -128,6 +129,16 @@ public class User_Order extends BaseTest {
 		
 		checkoutPage = PageGeneratorManager.getCheckoutPage(driver);
 		
+		checkoutPage.sendkeyToFirstNameInput(CheckoutPageUI.FIRSTNAME_INPUT,"Nguyen");
+		checkoutPage.sendkeyToLastNameInput(CheckoutPageUI.LASTNAME_INPUT,"Vu");
+		checkoutPage.sendkeyToEmailInput(CheckoutPageUI.EMAIL_INPUT,"abc@123.com");
+		checkoutPage.sendkeyToCompanyInput(CheckoutPageUI.COMPANY_INPUT,"DXC Company");
+		checkoutPage.selectCountry(CheckoutPageUI.COUNTRY_DROPDOWN,"United States");
+		checkoutPage.sendkeyToCityInput(CheckoutPageUI.CITY_INPUT,"Da Nang");
+		checkoutPage.sendkeyToAddressInput(CheckoutPageUI.ADDRESS_INPUT,"123 Hoang Dieu");
+		checkoutPage.sendkeyToZipCodeInput(CheckoutPageUI.ZIP_INPUT,"087087");
+		checkoutPage.sendkeyToPhoneInput(CheckoutPageUI.PHONE_INPUT,"01267874687");
+		checkoutPage.clickToContinueButton(CheckoutPageUI.CONTINUE);
 	}
 	
 	

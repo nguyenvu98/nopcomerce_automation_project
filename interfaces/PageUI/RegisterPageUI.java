@@ -1,13 +1,12 @@
 package PageUI;
 
 public class RegisterPageUI {
-	public static final String FIRSTNAME_ERROR = "//span[@id='FirstName-error']";
-	public static final String LASTNAME_ERROR = "//span[@id='LastName-error']";
-	public static final String EMAIL_ERROR = "//span[@id='Email-error']";
-	public static final String PASSWORD_ERROR = "//span[@id='Password-error']";
-	public static final String COMFIRM_PASSWORD_ERROR = "//span[@id='ConfirmPassword-error']";
-	public static final String WRONG_EMAIL_MESSAGE = "//span[text()='Wrong email']";	
-	public static final String ALREADY_EXIST_EMAIL_MESSAGE = "//li[text()='The specified email already exists']";	
+	public static final String FIRSTNAME_ERROR = "xpath=//span[@id='FirstName-error']";
+	public static final String LASTNAME_ERROR = "xpath=//span[@id='LastName-error']";
+	public static final String EMAIL_ERROR = "xpath=//span[@id='Email-error']";
+	public static final String PASSWORD_ERROR = "xpath=//span[@id='Password-error']";
+	public static final String COMFIRM_PASSWORD_ERROR = "xpath=//span[@id='ConfirmPassword-error']";
+	public static final String ALREADY_EXIST_EMAIL_MESSAGE = "xpath=//div[contains(@class,'validation-summary-errors')]//ul//li";	
 	public static final String PASSWORD_LESS_THAN_6CHARS = "";
 
 	public static final String REGISTER_BUTTON = "xpath=//button[@id='register-button']";
@@ -20,5 +19,6 @@ public class RegisterPageUI {
 	public static final String EMAIL_INPUT = "xpath=//input[@id='Email']";
 	public static final String PASSWORD_INPUT = "xpath=//input[@id='Password']";
 	public static final String CONFIRM_PASSWORD_INPUT = "xpath=//input[@id='ConfirmPassword']";
+	public static final String LOGOUT_LINK = "xpath=//div[@class='header-links']//li//a[contains(string(),'Log out')]";
 
 }

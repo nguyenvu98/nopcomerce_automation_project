@@ -69,4 +69,8 @@ public class PageGeneratorManager {
 	public static CheckoutPageObject getCheckoutPage(WebDriver driver) {
 		return new CheckoutPageObject(driver);
 	}
+
+	public static ComparePageObject getComparePage(WebDriver driver) {
+		return new ComparePageObject(driver);
+	}
 }

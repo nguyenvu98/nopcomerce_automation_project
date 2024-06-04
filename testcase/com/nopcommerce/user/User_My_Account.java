@@ -3,6 +3,7 @@ package com.nopcommerce.user;
 import static org.testng.Assert.assertTrue;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -73,7 +74,7 @@ public class User_My_Account extends BaseTest {
 		customerInfoPage.selectDropdownYear(driver,CustomerInfoPageUI.YEAR_INPUT,"1998");
 		customerInfoPage.sendkeyToElement(driver, CustomerInfoPageUI.COMPANYNAME_INPUT, "Automation FC");
 		customerInfoPage.clickToElement(driver, CustomerInfoPageUI.SAVE_BUTTON);
-		customerInfoPage.verifySuccessMessage();
+		verifyTrue(customerInfoPage.verifySuccessMessage( "The customer info has been updated successfully."));
 	}
 	
 	@Test
@@ -91,7 +92,7 @@ public class User_My_Account extends BaseTest {
 		addressesPage.sendkeyToElement(driver, AddressesPageUI.ZIPCODE_INPUT, "043");
 		addressesPage.sendkeyToElement(driver, AddressesPageUI.PHONENUMBER_INPUT, "0987654321");
 		addressesPage.clickToElement(driver, AddressesPageUI.SAVE_BUTTON);
-		addressesPage.verifySuccessMessage();
+		verifyTrue(addressesPage.verifySuccessMessage("The new address has been added successfully.")); 
 	}
 	
 	@Test

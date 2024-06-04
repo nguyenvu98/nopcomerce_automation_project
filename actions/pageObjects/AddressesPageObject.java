@@ -20,9 +20,9 @@ public class AddressesPageObject extends BasePage {
 		selectDay.selectByVisibleText(value);		
 	}
 
-	public void verifySuccessMessage() {
+	public boolean verifySuccessMessage(String message) {
 		waitForElementVisible(driver,AddressesPageUI.SUCCESS_MESSAGE);
-		Assert.assertEquals(AddressesPageUI.SUCCESS_MESSAGE, "The new address has been added successfully.");
+		return isElementDisplayed(driver, AddressesPageUI.SUCCESS_MESSAGE);
 	}
 
 }

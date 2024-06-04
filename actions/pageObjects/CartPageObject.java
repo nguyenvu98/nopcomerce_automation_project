@@ -19,6 +19,11 @@ public class CartPageObject extends BasePage {
 		this.driver = driver;
 	}
 	
+	public void verifyShoppingCartWasUpdated() {
+		int defaultNumber = 0;
+		
+	}
+	
 	public void verifyShoppingCartIsUpdate() {
 		int defaultNumber = 0;
 		WebElement actualQuantity = getWebElement(driver, CartPageUI.QUANTITY_PRODUCT);
@@ -84,4 +89,6 @@ public class CartPageObject extends BasePage {
 		waitForElementClickable(driver,CartPageUI.CHECKOUT_BUTTON);
 		clickToElement(driver, CartPageUI.CHECKOUT_BUTTON);			
 	}
+
+
 }

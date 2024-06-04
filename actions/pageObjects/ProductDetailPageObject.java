@@ -3,10 +3,12 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import PageUI.HomePageUI;
 import PageUI.ProductDetailPageUI;
+import commons.BaseMethod;
 import commons.BasePage;
 
-public class ProductDetailPageObject extends BasePage {
+public class ProductDetailPageObject extends BaseMethod {
 
 	private WebDriver driver;
 	
@@ -16,22 +18,23 @@ public class ProductDetailPageObject extends BasePage {
 
 	public void clickToAddWishListButton() {
 		scrollToElement(driver,ProductDetailPageUI.ADD_TO_WISHLIST_BUTTON);
-		clickToElement(driver, ProductDetailPageUI.ADD_TO_WISHLIST_BUTTON);
+		waitForElementClickable(driver, ProductDetailPageUI.ADD_TO_WISHLIST_BUTTON);
+		clickToElementByJS(driver, ProductDetailPageUI.ADD_TO_WISHLIST_BUTTON);
 	}
 
 	public void clickToCloseButton() {
 		waitForElementClickable(driver, ProductDetailPageUI.CLOSE_BUTTON);
-		clickToElement(driver, ProductDetailPageUI.CLOSE_BUTTON);
+		clickToElementByJS(driver, ProductDetailPageUI.CLOSE_BUTTON);
 	}
 
 	public void clickToWishlistLink() {
 		waitForElementClickable(driver, ProductDetailPageUI.WISHLIST_LINK);
-		clickToElement(driver, ProductDetailPageUI.WISHLIST_LINK);
+		clickToElementByJS(driver, ProductDetailPageUI.WISHLIST_LINK);
 	}
 
-	public String getSuccessfullyMessage() {
+	public boolean getSuccessfullyMessage() {
 		waitForElementVisible(driver, ProductDetailPageUI.SUCCESSFULLY_MESSAGE);
-		return getElementText(driver, ProductDetailPageUI.SUCCESSFULLY_MESSAGE);
+		return isElementDisplayed(driver, ProductDetailPageUI.SUCCESSFULLY_MESSAGE);
 	}
 
 	public void selectRAMByDropdown(WebDriver driver,String locator,String option) {
@@ -84,5 +87,16 @@ public class ProductDetailPageObject extends BasePage {
 		waitForElementVisible(driver, ProductDetailPageUI.CART_EMPTY_MESSAGE);
 		return getElementText(driver, ProductDetailPageUI.CART_EMPTY_MESSAGE);
 	}
+
+	public void clickToCompareListButton() {
+		waitForElementClickable(driver, ProductDetailPageUI.COMPARE_BUTTON);
+		clickToElement(driver,ProductDetailPageUI.COMPARE_BUTTON);
+	}
+
+	public void clickToHomeLogo() {
+		waitForElementClickable(driver, HomePageUI.HOME_LINK);
+		clickToElementByJS(driver, HomePageUI.HOME_LINK);		
+	}
+
 
 }

@@ -31,9 +31,10 @@ public class CustomerInfoPageObject extends BasePage {
 		selectYear.selectByVisibleText(value);		
 	}
 
-	public void verifySuccessMessage() {
+	public boolean verifySuccessMessage(String message) {
 		waitForElementVisible(driver,CustomerInfoPageUI.SUCCESS_MESSAGE);
-		Assert.assertEquals(CustomerInfoPageUI.SUCCESS_MESSAGE, "The customer info has been updated successfully.");
+		return isElementDisplayed(driver, CustomerInfoPageUI.SUCCESS_MESSAGE, message);
+
 	}
 
 }

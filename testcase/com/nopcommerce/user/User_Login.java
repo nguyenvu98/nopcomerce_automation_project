@@ -33,47 +33,50 @@ public class User_Login extends BaseTest {
 
 		homePage.clickToHeaderLinkByName("Register");
 		registerPage = PageGeneratorManager.getRegisterPageObject(driver);
-		registerPage.sendkeyToElement(driver, RegisterPageUI.FIRST_NAME_INPUT, validFirstName);
-		registerPage.sendkeyToElement(driver, RegisterPageUI.LAST_NAME_INPUT, validLastName);
-		registerPage.sendkeyToElement(driver, RegisterPageUI.EMAIL_INPUT, validEmail);
-		registerPage.sendkeyToElement(driver, RegisterPageUI.PASSWORD_INPUT, validPassword);
-		registerPage.sendkeyToElement(driver, RegisterPageUI.CONFIRM_PASSWORD_INPUT, validConfirmPassword);
+		registerPage.sendkeyToFirstNameInput(RegisterPageUI.FIRST_NAME_INPUT, validFirstName);
+		registerPage.sendkeyToLastNameInput(RegisterPageUI.LAST_NAME_INPUT, validLastName);
+		registerPage.sendkeyToEmailInput(RegisterPageUI.EMAIL_INPUT, validEmail);
+		registerPage.sendkeyToPasswordInput(RegisterPageUI.PASSWORD_INPUT, validPassword);
+		registerPage.sendkeyToConfirmPassInput(RegisterPageUI.CONFIRM_PASSWORD_INPUT, validConfirmPassword);
 		registerPage.clickRegisterButton();
 		registerPage.clickToContinueButton();
+		homePage.clickToHeaderLinkByName("Log out");	
 	}
 	
+	@Test
 	public void TC_01_With_Empty_Data(){
 		homePage.clickToHeaderLinkByName("Log in");
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 		loginPage.clickLoginButton();
-		Assert.assertEquals(loginPage.getErrorMessage(driver, LoginPageUI.EMAIL_ERROR), "Please enter your email");
+		loginPage.verifyEmptyEmailMessage(LoginPageUI.EMAIL_ERROR);
 	}
 	
-	
+	@Test
 	public void TC_02_With_Invalid_Email(){
 		homePage.clickToHeaderLinkByName("Log in");
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 		loginPage.sendkeyToElement(driver, LoginPageUI.EMAIL_INPUT, invalidEmail);
 		loginPage.clickLoginButton();
-		Assert.assertEquals(loginPage.getErrorMessage(driver, LoginPageUI.EMAIL_ERROR), "Wrong email");
+		loginPage.verifyInvalidEmailMessage(LoginPageUI.EMAIL_ERROR);
 	}
 	
-	
+	@Test
 	public void TC_03_With_Unregisted_Email(){
 		homePage.clickToHeaderLinkByName("Log in");
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 		loginPage.sendkeyToElement(driver, LoginPageUI.EMAIL_INPUT, unregistedEmail);
 		loginPage.clickLoginButton();
-		Assert.assertEquals(loginPage.getErrorMessage(driver, LoginPageUI.UNREGISTED_EMAIL_ERROR), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
+		loginPage.verifyUnregistedEmailMessage(LoginPageUI.EMAIL_ERROR);
 	}
 	
+	@Test
 	public void TC_04_With_Registed_Email_And_Pass_Non_Sendkey(){
 		homePage.clickToHeaderLinkByName("Log in");
 		loginPage = PageGeneratorManager.getLoginPageObject(driver);
 		loginPage.sendkeyToElement(driver, LoginPageUI.EMAIL_INPUT, registedEmail);
 		loginPage.sendkeyToElement(driver, LoginPageUI.PASSWORD_INPUT, "");
 		loginPage.clickLoginButton();
-		Assert.assertEquals(loginPage.getErrorMessage(driver, LoginPageUI.UNREGISTED_EMAIL_ERROR), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
+		loginPage.verifyRegistedEmaiNonSendkeyMessage(LoginPageUI.EMAIL_ERROR);
 	}
 	
 	public void TC_05_With_Registed_Email_And_Wrong_Pass(){
@@ -82,7 +85,7 @@ public class User_Login extends BaseTest {
 		loginPage.sendkeyToElement(driver, LoginPageUI.EMAIL_INPUT, registedEmail);
 		loginPage.sendkeyToElement(driver, LoginPageUI.PASSWORD_INPUT, wrongPass);
 		loginPage.clickLoginButton();
-		Assert.assertEquals(loginPage.getErrorMessage(driver, LoginPageUI.UNREGISTED_EMAIL_ERROR), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
+		loginPage.verifyRegistedEmaiWrongPassMessage(LoginPageUI.EMAIL_ERROR);
 	}
 	
 	@Test

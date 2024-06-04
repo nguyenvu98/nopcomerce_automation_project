@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import PageUI.HomePageUI;
+import PageUI.ProductDetailPageUI;
 import commons.BasePage;
 
 public class HomePageObject extends BasePage {
@@ -38,6 +39,23 @@ public class HomePageObject extends BasePage {
 	public void clickToProductLink() {
 		scrollToElement(driver,HomePageUI.PRODUCT_HOMEPAGE_LINK);
 		clickToElement(driver, HomePageUI.PRODUCT_HOMEPAGE_LINK);
+	}
+
+	public void clickToCompareAtHomepage() {
+		scrollToElement(driver,HomePageUI.PRODUCT_HOMEPAGE_TITLE);
+		clickToElement(driver,HomePageUI.COMPARE_BUTTON);
+
+	}
+
+	public void clickToCloseButton() {
+		waitForElementClickable(driver, ProductDetailPageUI.CLOSE_BUTTON);
+		clickToElementByJS(driver, ProductDetailPageUI.CLOSE_BUTTON);		
+	}
+
+	public void clickToCompareProductList() {
+		waitForElementClickable(driver, HomePageUI.COMPARE_PRODUCT_LIST_LINK);
+		clickToElementByJS(driver, HomePageUI.COMPARE_PRODUCT_LIST_LINK);	
+		
 	}
 	
 	

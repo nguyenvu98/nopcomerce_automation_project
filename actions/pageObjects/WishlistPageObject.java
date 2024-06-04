@@ -41,4 +41,14 @@ private WebDriver driver;
 		clickToElement(driver, WishlistPageUI.ADD_TO_CART_BUTTON);
 	}
 
+	public void clickToAddToCartCheckbox() {
+		waitForElementClickable(driver, WishlistPageUI.ADD_TO_CART_CHECKBOX);
+		clickToElement(driver, WishlistPageUI.ADD_TO_CART_CHECKBOX);
+	}
+
+	public void clickAddToCartButton() {
+		waitForElementClickable(driver, WishlistPageUI.ADD_TO_CART_BUTTON);
+		clickToElement(driver, WishlistPageUI.ADD_TO_CART_BUTTON);
+	}
+
 }

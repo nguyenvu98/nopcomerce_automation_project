@@ -334,6 +334,11 @@ public class BasePage {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
 		jsExecutor.executeScript("arguments[0].click();", getWebElement(driver, locator));
 	}
+	
+	public void clickToElementByJS(WebDriver driver, String locator, String pageName) {
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("arguments[0].click();", getWebElement(driver, locator, pageName));
+	}
 
 	public void scrollToElement(WebDriver driver, String locator) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -504,7 +509,7 @@ public class BasePage {
 		String acctualResult = errMessage.getText();
 		return  acctualResult;
 	}
-	
+		
 	public void clickRadioButton(WebDriver driver, String locator, String value) {
 		waitForElementClickable(driver, locator, value);
 		clickToElement(driver, locator, value);
