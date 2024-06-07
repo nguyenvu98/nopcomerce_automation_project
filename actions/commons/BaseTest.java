@@ -54,6 +54,20 @@ public class BaseTest {
 		return driverBaseTest;
 	}
 	
+	protected WebDriver getBrowserDriverAtAdmin(String browserName) {
+		if(browserName.equals("firefox")) {
+			driverBaseTest = new FirefoxDriver();
+		}else if (browserName.equals("chrome")) {
+			driverBaseTest = new ChromeDriver();
+		}else {
+			driverBaseTest = new EdgeDriver();
+		}
+		driverBaseTest.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driverBaseTest.manage().window().maximize();
+		driverBaseTest.get(GlobalConstants.ADMIN_PAGE_URL);
+		return driverBaseTest;
+	}
+	
 	protected boolean verifyTrue(boolean condition) {
 		boolean pass = true;
 		try {

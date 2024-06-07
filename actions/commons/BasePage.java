@@ -519,4 +519,8 @@ public class BasePage {
 		waitForElementInvisible(driver, locator);
 		isElementUndisplayed(driver, locator);
 	}
+	
+	protected int getListElementSize(WebDriver driver2, String columnIndexByColumnName, String columnName) {
+		return 0;
+	}
 }

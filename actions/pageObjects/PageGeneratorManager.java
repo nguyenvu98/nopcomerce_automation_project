@@ -73,4 +73,20 @@ public class PageGeneratorManager {
 	public static ComparePageObject getComparePage(WebDriver driver) {
 		return new ComparePageObject(driver);
 	}
+	
+	public static AdminDashboardPageObject getAdminDashboardPage(WebDriver driver) {
+		return new AdminDashboardPageObject(driver);
+	}
+	
+	public static AdminProductPageObject getAdminProductPage(WebDriver driver) {
+		return new AdminProductPageObject(driver);
+	}
+
+	public static AdminLoginPageObject getAdminLoginPageObject(WebDriver driver) {
+		return new AdminLoginPageObject(driver);
+	}
+	
+	public static AdminProductDetailPageObject getAdminProductDetailPageObject(WebDriver driver) {
+		return new AdminProductDetailPageObject(driver);
+	}
 }
