@@ -1,14 +1,11 @@
 package pageObjects;
 
-import java.util.List;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import PageUI.AdminProductPageUI;
 import commons.BaseMethod;
-import commons.BasePage;
 
 public class AdminProductPageObject extends BaseMethod {
 	WebDriver driver;

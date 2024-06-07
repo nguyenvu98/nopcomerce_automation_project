@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 import PageUI.AdminDashboardPageUI;
 import commons.BaseMethod;
-import commons.BasePage;
 
 public class AdminDashboardPageObject extends BaseMethod {
 	WebDriver driver;

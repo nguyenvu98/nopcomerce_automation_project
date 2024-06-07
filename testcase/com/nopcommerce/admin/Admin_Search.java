@@ -9,17 +9,14 @@ import org.testng.annotations.Test;
 
 import PageUI.AdminProductDetailPageUI;
 import PageUI.AdminProductPageUI;
-import PageUI.LoginPageUI;
-import PageUI.RegisterPageUI;
+
 import commons.BaseTest;
 import pageObjects.AdminDashboardPageObject;
 import pageObjects.AdminLoginPageObject;
 import pageObjects.AdminProductDetailPageObject;
 import pageObjects.AdminProductPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.LoginPageObject;
+
 import pageObjects.PageGeneratorManager;
-import pageObjects.RegisterPageObject;
 
 public class Admin_Search extends BaseTest {
 	private WebDriver driver;
