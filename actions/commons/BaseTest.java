@@ -4,6 +4,10 @@ import java.time.Duration;
 //import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Point;
@@ -29,7 +33,13 @@ import pageObjects.RegisterPageObject;
 
 
 public class BaseTest {
-//	protected final Logger log = LogManager.getLogger(getClass());
+	
+	protected final Log log;
+	
+	protected BaseTest(){
+		log = LogFactory.getLog(getClass());		
+	}
+	
 	private WebDriver driverBaseTest;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Nopcommerce" thread-count="3">
-
-<!--	<listeners>
-	 	<listener class-name="reportConfig.ExtentTestListener"></listener>
-		<listener class-name="commons.MethodListener"></listener>
-	</listeners>-->
 	<test name="Run on Firefox">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
